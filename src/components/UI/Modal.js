@@ -7,7 +7,6 @@ const ModalSection = styled.div`
     z-index: 500;
     background-color: white;
     width: 70%;
-    border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
     left: 15%;
     top: 5%;

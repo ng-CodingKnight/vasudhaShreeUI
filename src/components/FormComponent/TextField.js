@@ -5,7 +5,6 @@ import { useField, ErrorMessage } from 'formik';
 const Input = styled.input`
     margin: 1rem 0.5rem;
     width: 100%;
-    border: ${({meta}) => (meta.touched && meta.error ? '1px solid red' : 'none')};
     border-radius: 5px;
     height: 35px;
     padding: 1rem;
@@ -20,11 +19,11 @@ const ErrorSection = styled(ErrorMessage)`
 
 
 const TextField = (props) => {
-    const [field, meta] = useField(props);
+   
     return (
         <React.Fragment>
-            <Input {...field} {...props} meta={meta}/>
-            <ErrorSection name={field.name} />
+            <Input {...props} />
+            {/* <ErrorSection name={field.name} /> */}
         </React.Fragment>
     )
 }

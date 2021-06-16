@@ -13,7 +13,7 @@ const navLinks = css`
     align-items: center;
     padding: 0 1rem;
     height: 100%;
-    color: #212F3C;
+    color: #6E6E6E;
     cursor: pointer;
 `;
 
@@ -67,9 +67,9 @@ const NavLink = styled(Link)`
     padding: 1rem;
     font-weight: bold;
     transition: 0.3s;
-
+    
     &:hover {
-        color : ${({isScroll}) => (isScroll ? '#58D68D' : '#F0F3F4')};
+        color : ${({isscroll}) => (isscroll ? '#58D68D' : '#F0F3F4')};
         transform: translateY(5px);
     }
     
@@ -86,7 +86,7 @@ const NavBtn = styled.div`
 
 
 const Navbar = (props) => {
-    const [isscroll, setScroll] = useState(false);
+    let [isscroll, setScroll] = useState(false);
 
     const changeBg = () => {
         if (window.scrollY >= 400) {

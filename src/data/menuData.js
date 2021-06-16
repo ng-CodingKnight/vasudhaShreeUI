@@ -2,7 +2,9 @@
 
 export const menuData = [
     {title : 'Home', link: 'home'},
-    {title : 'Products', link: 'products'},
     {title : 'Services', link: 'services'},
-    {title : 'About US', link: 'about'}
+    {title : 'Products', link: 'products'},
+    {title : 'R & D', link: 'research'},
+    {title : 'Gallery', link: 'gallery'},
+    {title : 'About US', link: 'about'},
 ]
