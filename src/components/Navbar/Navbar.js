@@ -1,127 +1,132 @@
-import React, { useState } from 'react';
-import { animateScroll as scroll } from 'react-scroll';
-import { Link } from 'react-scroll';
-import styled, { css } from 'styled-components';
-import { menuData } from '../../data/menuData';
-import { Button } from '../UI/Button';
-import { NavHeader } from '../UI/NavHeader';
-import { AiOutlineBars as Bars } from 'react-icons/ai';
+import React, { useState } from "react";
+import { animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
+import styled, { css } from "styled-components";
+import { menuData } from "../../data/menuData";
+import { Button } from "../UI/Button";
+import { NavHeader } from "../UI/NavHeader";
+import { AiOutlineBars as Bars } from "react-icons/ai";
 
 const navLinks = css`
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    height: 100%;
-    color: #6E6E6E;
-    cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  height: 100%;
+  color: #fff;
+  cursor: pointer;
 `;
 
-
 const Logo = styled(Link)`
-    ${navLinks}
-    font-weight: bold;
-    transition: 0.3s;
+  ${navLinks}
+  font-weight: bold;
+  transition: 0.3s;
 
-    &:hover {
-        color: #1D8348;
-        transform: translateY(-5px);
-    }
-    @media screen and (max-width: 768px) {
-        color: #000;
-    }
+  &:hover {
+    color: #1d8348;
+    transform: translateY(-5px);
+  }
+  @media screen and (max-width: 768px) {
+    color: #000;
+  }
 `;
 
 const MenuBars = styled(Bars)`
-    display: none;
+  display: none;
 
-    @media screen and (max-width: 768px) {
-        display: block;
-        background-size: contain;
-        height: 40px;
-        width: 40px;
-        cursor: pointer;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-50%, 25%);
+  @media screen and (max-width: 768px) {
+    display: block;
+    background-size: contain;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-50%, 25%);
 
-        &:hover {
-            color : #2ECC71;
-        }
+    &:hover {
+      color: #2ecc71;
     }
+  }
 `;
 
 const NavMenu = styled.div`
-    display: flex;
-    align-items: center;
-    margin-right: 3rem;
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
 
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const NavLink = styled(Link)`
-    ${navLinks}
-    padding: 1rem;
-    font-weight: bold;
-    transition: 0.3s;
-    
-    &:hover {
-        color : ${({isscroll}) => (isscroll ? '#58D68D' : '#F0F3F4')};
-        transform: translateY(5px);
-    }
-    
-`
-const NavBtn = styled.div`
-    display: flex;
-    align-items: center;
-    margin-right: 24px;
+  ${navLinks}
+  padding: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
 
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
+  &:hover {
+    color: ${({ isscroll }) => (isscroll ? "#58D68D" : "#F0F3F4")};
+    transform: translateY(5px);
+  }
+`;
+const NavBtn = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
-
 const Navbar = (props) => {
-    let [isscroll, setScroll] = useState(false);
+  let [isscroll, setScroll] = useState(false);
 
-    const changeBg = () => {
-        if (window.scrollY >= 400) {
-            setScroll(true);
-        } else {
-            setScroll(false)
-        }
+  const changeBg = () => {
+    if (window.scrollY >= 400) {
+      setScroll(true);
+    } else {
+      setScroll(false);
     }
+  };
 
-    const scrollToComponent = () => {
-        scroll.scrollToTop();
-    }
+  const scrollToComponent = () => {
+    scroll.scrollToTop();
+  };
 
-    window.addEventListener('scroll', changeBg)
+  window.addEventListener("scroll", changeBg);
 
-    return (
-        <NavHeader isscroll={isscroll}>
-            <Logo to="/" onClick={scrollToComponent}>VashudhaShree</Logo>
-            <MenuBars />
-            <NavMenu >
-                {menuData.map((item, index) => (
-                    <NavLink to={item.link}
-                        key={index}
-                        smooth={true}
-                        spy={true}
-                        isscroll={isscroll}>
-                        {item.title}
-                    </NavLink>
-                ))}
-            </NavMenu>
-            <NavBtn>
-                <Button primary='true' onClick={props.clicked}>Contact US</Button>
-            </NavBtn>
-        </NavHeader>
-    )
-}
+  return (
+    <NavHeader isscroll={isscroll}>
+      <Logo to="/" onClick={scrollToComponent}>
+        VashudhaShree
+      </Logo>
+      <MenuBars />
+      {props.isHomePage && (
+        <NavMenu>
+          {menuData.map((item, index) => (
+            <NavLink
+              to={item.link}
+              key={index}
+              smooth={true}
+              spy={true}
+              isscroll={isscroll}
+            >
+              {item.title}
+            </NavLink>
+          ))}
+        </NavMenu>
+      )}
+      <NavBtn>
+        <Button primary="true" onClick={props.clicked}>
+          Contact US
+        </Button>
+      </NavBtn>
+    </NavHeader>
+  );
+};
 
-export default Navbar
+export default Navbar;
