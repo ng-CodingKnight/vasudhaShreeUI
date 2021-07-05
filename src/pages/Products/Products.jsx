@@ -1,30 +1,22 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
 
 import Description from "../../components/UI/Description/Description";
 import Title from "../../components/UI/Title/Title";
 import InfoCard from "../../components/InfoCard/InfoCard";
 import PageIntro from "../../components/UI/PageIntro/PageIntro";
-import Modal from "../../components/UI/Modal";
+import Modal from "../../components/UI/Modal/Modal";
+import ProductCard from "./ProductCard/ProductCard";
+import SmallFooter from "../../components/SmallFooter/SmallFooter";
 
 import { productIntro, productDetails } from "../../data/productData";
 
 import "./Products.scss";
-import Form from "../../components/FormComponent/Form";
-import ProductCard from "./ProductCard/ProductCard";
 
 const Products = () => {
-  let [showForm, setShowForm] = useState(false);
+
   let [showProduct, setShowProduct] = useState(false);
   let [productData, setProductData] = useState({});
 
-  const openForm = () => {
-    setShowForm(true);
-  };
-
-  const closeForm = () => {
-    setShowForm(false);
-  };
 
   const productDialog = (item) => {
     setShowProduct(true);
@@ -33,10 +25,6 @@ const Products = () => {
 
   return (
     <div className="products_container">
-      <Navbar isHomePage={false} clicked={openForm} />
-      <Modal show={showForm} closed={closeForm}>
-        <Form closed={closeForm} />
-      </Modal>
       <Modal show={showProduct} closed={() => setShowProduct(false)}>
         <ProductCard
           data={productData}
@@ -61,6 +49,7 @@ const Products = () => {
           })}
         </div>
       </div>
+      <SmallFooter />
     </div>
   );
 };

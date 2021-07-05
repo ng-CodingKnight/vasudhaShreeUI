@@ -16,6 +16,10 @@ const GlobalStyles = createGlobalStyle`
      text-decoration : none;
      color: #fff;
  }
+
+ Link {
+     text-decoration : none;
+ }
 `;
 
 export default GlobalStyles;

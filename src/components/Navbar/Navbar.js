@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { animateScroll as scroll } from "react-scroll";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { menuData } from "../../data/menuData";
 import { Button } from "../UI/Button";
@@ -109,13 +109,12 @@ const Navbar = (props) => {
         <NavMenu>
           {menuData.map((item, index) => (
             <NavLink
-              to={item.link}
               key={index}
               smooth={true}
               spy={true}
               isscroll={isscroll}
             >
-              {item.title}
+              <Link to={item.link}>{item.title}</Link>
             </NavLink>
           ))}
         </NavMenu>

@@ -1,34 +1,40 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import styled from 'styled-components';
 import { Button } from '../UI/Button';
 import { IoMdArrowRoundForward as arrow } from 'react-icons/io';
 import { Card } from '../UI/Card';
+import { Link } from 'react-router-dom';
 
 
-const InfoSection = (props) => {
+const InfoSection = ({ data, animate }) => {
 
     useEffect(() => {
         Aos.init({
-          duration : 2000,
-          once: false
+            duration: 2000,
+            once: false
         })
-      }, [])
+    }, [])
 
     return (
-        <Section id={props.idValue}>
-            <Card reverse={props.data.reverse}>
-                <ColumnLeft reverse={props.data.reverse}>
-                    <h1>{props.data.title}</h1>
-                    <p>{props.data.paragraph}</p>
-                    <Button to={props.data.path} primary='true'>
-                        Go to {props.data.label}
-                        <Arrow />
-                    </Button>
+        <Section>
+            <Card reverse={data.reverse}>
+                <ColumnLeft reverse={data.reverse}>
+                    <h1>{data.title}</h1>
+                    <p>{data.paragraph}</p>
+                    {
+                        data.path &&
+                        <Button primary='true'>
+                            <Link to={data.path}>
+                                {data.label ? `Go to ${data.label}` : 'Learn More'}
+                                <Arrow />
+                            </Link>
+                        </Button>
+                    }
                 </ColumnLeft>
-                <ColumnRight data-aos={props.animate}>        
-                    <img src={props.data.image} alt='home' /> 
+                <ColumnRight data-aos={animate}>
+                    <img src={data.image} alt='home' />
                 </ColumnRight>
             </Card>
         </Section>
@@ -42,7 +48,7 @@ const Section = styled.section`
     margin-top: 2rem;
     margin-bottom: 2rem;
 `;
-  
+
 const ColumnLeft = styled.div`
     width: 100%;
     display: flex;

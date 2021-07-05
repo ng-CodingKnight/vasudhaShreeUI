@@ -170,17 +170,18 @@ const Hero = (props) => {
                   <HeroImage src={slide.image} alt={slide.alt} />
                   <HeroContent>
                     <h1>{slide.title}</h1>
-                    <p>Scale : {slide.type}</p>
+                    {slide.type && <p>Scale : {slide.type}</p>}
+                    {slide.content && <p>{slide.content}</p>}
+
                     <Button
                       to={slide.path}
                       primary="true"
-                      css={`
-                        max-width: 160px;
-                      `}
+                      css={`max-width: 160px;`}
                     >
                       {slide.label}
                       <Arrow />
                     </Button>
+
                   </HeroContent>
                 </HeroSlider>
               )}
