@@ -8,33 +8,33 @@ export const sliderData = [
     {
         title: 'Garden Farming',
         type: 'small scale',
-        path: '/homes',
+        path: '/Services',
         label: 'More Details',
         image: imageOne,
-        alt: 'Farming'    
+        alt: 'Farming'
     },
     {
         title: 'Corn Field',
         type: 'Big scale',
-        path: '/homes',
+        path: '/Services',
         label: 'More Details',
         image: imageTwo,
-        alt: 'Farming'    
+        alt: 'Farming'
     },
     {
         title: 'Cultivation',
         type: 'Big scale',
-        path: '/homes',
+        path: '/Services',
         label: 'More Detials',
         image: imageThree,
-        alt: 'Farming'    
+        alt: 'Farming'
     },
     {
         title: 'Plantation & Nuturing',
         type: 'medium scale',
-        path: '/homes',
+        path: '/Services',
         label: 'More Details',
         image: imageFour,
-        alt: 'Farming'    
+        alt: 'Farming'
     }
 ]

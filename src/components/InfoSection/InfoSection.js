@@ -8,7 +8,7 @@ import { Card } from '../UI/Card';
 import { Link } from 'react-router-dom';
 
 
-const InfoSection = ({ data, animate }) => {
+const InfoSection = ({ data, animate, clicked }) => {
 
     useEffect(() => {
         Aos.init({
@@ -24,14 +24,18 @@ const InfoSection = ({ data, animate }) => {
                     <h1>{data.title}</h1>
                     <p>{data.paragraph}</p>
                     {
-                        data.path &&
-                        <Button primary='true'>
-                            <Link to={data.path}>
-                                {data.label ? `Go to ${data.label}` : 'Learn More'}
-                                <Arrow />
-                            </Link>
-                        </Button>
+                        data.path !== '/' ?
+                            <Button primary='true'>
+                                <StyledLink to={data.path}>
+                                    {`Go to ${data.label}`}<Arrow />
+                                </StyledLink>
+                            </Button> :
+                            <Button primary='true' onClick={clicked}>
+                                Learn More <Arrow />
+                            </Button>
                     }
+
+
                 </ColumnLeft>
                 <ColumnRight data-aos={animate}>
                     <img src={data.image} alt='home' />
@@ -85,6 +89,15 @@ const ColumnRight = styled.div`
 
 const Arrow = styled(arrow)`
     margin-left: 0.4rem;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #979A9A;
+
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+  }
 `;
 
 

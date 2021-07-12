@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Hero from "../../components/Hero/Hero";
 import InfoSection from "../../components/InfoSection/InfoSection";
 import Gallery from "../../components/Gallery/Gallery";
-import Footer from "../../components/Footer/Footer";
+import SmallFooter from "../../components/SmallFooter/SmallFooter";
 
 
 import { InfoDataOne, InfoDataThree, InfoDataTwo } from "../../data/InfoData";
@@ -22,7 +22,7 @@ const Home = () => {
         animate="fade-left"
       />
       <Gallery idValue="gallery" data={galleryData} title="Our Gallery" />
-      <Footer />
+      <SmallFooter />
     </Fragment>
   );
 };
