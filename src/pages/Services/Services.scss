@@ -6,4 +6,30 @@
         justify-content: center;
         gap: 1rem;
     }
+
+}
+
+.service-dialog {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    padding: 1.5rem;
+    gap: 1rem;
+    background: #294a6f;
+    height: 100%;
+   
+    &__images {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        img { 
+            object-fit: cover;
+            width: 25rem;
+            height: 25rem;
+            padding: 1rem;
+        }
+    }
 }

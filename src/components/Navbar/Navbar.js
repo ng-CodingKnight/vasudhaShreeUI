@@ -82,6 +82,15 @@ const NavBtn = styled.div`
   }
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #000;
+
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+  }
+`;
+
 const Navbar = (props) => {
   let [isscroll, setScroll] = useState(false);
 
@@ -114,7 +123,7 @@ const Navbar = (props) => {
               spy={true}
               isscroll={isscroll}
             >
-              <Link to={item.link}>{item.title}</Link>
+              <StyledLink to={item.link}>{item.title}</StyledLink>
             </NavLink>
           ))}
         </NavMenu>
